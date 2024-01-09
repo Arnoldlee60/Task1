@@ -76,5 +76,5 @@ class Program
         {
             Console.WriteLine($"[{innerList[0]}, {innerList[1]}]");
         }
-    }
+    } 
 }
