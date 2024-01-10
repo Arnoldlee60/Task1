@@ -67,19 +67,20 @@ class Program
             resultList.Add(new List<int> { resultList[resultList.Count - 1][1], innerList[1] });
         }
 
-        List<List<List<int>>> result = GroupArrays(resultList);
+        //List<List<List<int>>> result = GroupArrays(resultList);
 
-        // Example usage:
-        foreach (var group in result)
-        {
-            Console.WriteLine("[");
-            foreach (var subArray in group)
-            {
-                Console.WriteLine($"    [{subArray[0]}, {subArray[1]}],");
-            }
-            Console.WriteLine("]");
-        }
+        // foreach (var group in result)
+        // {
+        //     Console.WriteLine("[");
+        //     foreach (var subArray in group)
+        //     {
+        //         Console.WriteLine($"    [{subArray[0]}, {subArray[1]}],");
+        //     }
+        //     Console.WriteLine("]");
+        // }
 
+        //Console.WriteLine(result.Count);
+        PrintList(originalList);
         //PrintList(resultList);
 
     }
@@ -90,6 +91,7 @@ class Program
         {
             Console.WriteLine($"[{innerList[0]}, {innerList[1]}]");
         }
+        Console.WriteLine(list.Count);
     } 
     
     static List<List<List<int>>> GroupArrays(List<List<int>> arr)
@@ -102,18 +104,20 @@ class Program
             if (currentGroup.Count == 0 || currentGroup[currentGroup.Count - 1][1] == subArray[0])
             {
                 currentGroup.Add(subArray);
+                Console.WriteLine(currentGroup[currentGroup.Count - 1][0] + " " + currentGroup[currentGroup.Count - 1][1] + " == " + subArray[0] + " " + subArray[1]);
             }
             else
             {
                 groupedArrays.Add(new List<List<int>>(currentGroup));
                 currentGroup = new List<List<int>> { subArray };
+                Console.WriteLine(subArray);
             }
         }
 
-        if (currentGroup.Count > 0)
-        {
-            groupedArrays.Add(currentGroup);
-        }
+        // if (currentGroup.Count > 0)
+        // {
+        //     groupedArrays.Add(currentGroup);
+        // }
 
         return groupedArrays;
     }
