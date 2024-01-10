@@ -32,3 +32,4 @@ C:\Users\Arnol\OneDrive\Documents\GitHub\Task1\bin\Debug\net8.0\runtimes\win\lib
 C:\Users\Arnol\OneDrive\Documents\GitHub\Task1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Arnol\OneDrive\Documents\GitHub\Task1\obj\Debug\net8.0\Task1.csproj.AssemblyReference.cache
 C:\Users\Arnol\OneDrive\Documents\GitHub\Task1\obj\Debug\net8.0\Task1.csproj.CopyComplete
+C:\Users\Arnol\OneDrive\Documents\GitHub\Task1\obj\Debug\net8.0\Task1.sourcelink.json

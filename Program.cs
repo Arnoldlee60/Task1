@@ -2,6 +2,7 @@
 using OfficeOpenXml;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 class Program
 {
@@ -66,7 +67,20 @@ class Program
             resultList.Add(new List<int> { resultList[resultList.Count - 1][1], innerList[1] });
         }
 
-        PrintList(resultList);
+        List<List<List<int>>> result = GroupArrays(resultList);
+
+        // Example usage:
+        foreach (var group in result)
+        {
+            Console.WriteLine("[");
+            foreach (var subArray in group)
+            {
+                Console.WriteLine($"    [{subArray[0]}, {subArray[1]}],");
+            }
+            Console.WriteLine("]");
+        }
+
+        //PrintList(resultList);
 
     }
 
@@ -77,4 +91,30 @@ class Program
             Console.WriteLine($"[{innerList[0]}, {innerList[1]}]");
         }
     } 
+    
+    static List<List<List<int>>> GroupArrays(List<List<int>> arr)
+    {
+        List<List<List<int>>> groupedArrays = new List<List<List<int>>>();
+        List<List<int>> currentGroup = new List<List<int>>();
+
+        foreach (var subArray in arr)
+        {
+            if (currentGroup.Count == 0 || currentGroup[currentGroup.Count - 1][1] == subArray[0])
+            {
+                currentGroup.Add(subArray);
+            }
+            else
+            {
+                groupedArrays.Add(new List<List<int>>(currentGroup));
+                currentGroup = new List<List<int>> { subArray };
+            }
+        }
+
+        if (currentGroup.Count > 0)
+        {
+            groupedArrays.Add(currentGroup);
+        }
+
+        return groupedArrays;
+    }
 }
